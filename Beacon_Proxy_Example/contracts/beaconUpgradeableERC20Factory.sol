@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+pragma solidity ^0.8.18;
 
 import "@openzeppelin/contracts/proxy/beacon/BeaconProxy.sol";
 import "./beacon.sol";
@@ -32,7 +32,12 @@ contract ERC20Factory {
                 implId
             );
         } else {
-            createNonUpgradeableTokenInstance(_name, _symbol, _totalSupply, implId);
+            createNonUpgradeableTokenInstance(
+                _name,
+                _symbol,
+                _totalSupply,
+                implId
+            );
         }
     }
 
