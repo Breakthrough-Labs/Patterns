@@ -1,13 +1,10 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.4.22;
-
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v2.5.0/contracts/math/SafeMath.sol";
-import "ipfs://Qmdyq9ZmWcaryd1mgGZ4PttRNctLGUSAMpPqufsk6uRMKh";
+import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/finance/VestingWallet.sol";
 
 contract Lock {
     uint public unlockTime;
-    address payable public owner;
-
+    address public owner;
     event Withdrawal(uint amount, uint when);
 
     constructor(uint _unlockTime) payable {
@@ -17,7 +14,7 @@ contract Lock {
         );
 
         unlockTime = _unlockTime;
-        owner = payable(msg.sender);
+        owner = (msg.sender);
     }
 
     function withdraw() public {
